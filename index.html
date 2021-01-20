@@ -24,17 +24,17 @@
     <section>
         <div id="linha1">
             <label for="nome">Nome Completo</label>
-            <input type="text" placeholder="Digite seu nome completo..." id="nome" class="input" size="50%">
+            <input type="text" required placeholder="Digite seu nome completo..." id="nome" class="input" size="50%" onfocus="validaNome()">
         </div>
         <div id="linha2">
             <label for="cpf">CPF</label>
-            <input type="text" placeholder="Digite seu CPF..." id="cpf" class="input">
+            <input type="text" placeholder="Digite seu CPF..." id="cpf" class="input" id="RegraValida" value="" name="RegraValida" onkeydown="javascript: fMasc( this, mCPF );" onchange="ValidaCPF()" maxlength="14">
             <label for="rg">RG</label>
-            <input type="text" placeholder="Digite seu RG..." id="rg" class="input">
+            <input type="text" placeholder="Digite seu RG..." id="rg" class="input" id="rgvalido" name="rgvalido" value="" onkeypress="mascara (this, '##.###.###-#')" maxlength="12" onchange="validarrg()">
         </div>
         <div id="linha3">
             <label for="nascimento">Data de Nascimento</label>
-            <input type="text" placeholder="dd/mm/aaaa" id="nascimento" class="input" size="9%">
+            <input type="text" placeholder="dd/mm/aaaa" id="nascimento" class="input" size="9%" onfocus="validadata()">
             <label for="cnh">Tipo de CNH</label>
                <select name="cnh" id="cnh" class="input">
             <option value="A">A</option>
@@ -42,18 +42,19 @@
             <option value="A/B">A/B</option>
                </select>
             <label for="civil">Estado Civil</label>
-            <select name="civil" id="cnh" class="input">
+            <select name="civil" class="input" id="civil">
                 <option value="Solteiro">Solteiro(a)</option>
                 <option value="Casado">Casado(a)</option>
+                <option value="Viuvo">Viúvo(a)</option>
                    </select>
         </div>
         <div id="linha4">
             <label for="cep">CEP</label>
-            <input type="text" id="cep" class="input" size="8%">
+            <input type="text" id="cep" class="input" size="8%" onkeydown="javascript: fMasc(this,mCEP)" onchange="getDadosEnderecoCEP(this.value)" placeholder="00000-000">
             <label for="rua">Rua</label>
             <input type="text" readonly id="rua" class="input">
             <label for="numero">Número</label>
-            <input type="text" readonly id="numero" class="input" size="5%">
+            <input type="text" id="numero" class="input" size="5%">
             <label for="bairro">Bairro</label>
             <input type="text" readonly id="bairro" class="input" size="15%">
         </div>
@@ -63,7 +64,7 @@
             <label for="cidade">Cidade</label>
             <input type="text" readonly id="cidade" class="input">
             <label for="uf">Estado</label>
-            <input type="text" readonly id="uf" class="input" size="15%">
+            <input type="text" readonly id="estado" class="input" size="15%">
         </div>
     
         <button onclick="addCadastro()" >Salvar Cadastro</button>
